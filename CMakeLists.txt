@@ -13,6 +13,8 @@ add_executable(CS210_PA1
         ArrayList.h
         LinkedList.h
         Player.h
+        Card.h
+        Stack.h
 )
 
 target_compile_options(CS210_PA1 PRIVATE
