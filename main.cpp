@@ -40,46 +40,46 @@ int main() {
 
     std::unique_ptr<List<Player>> tableOne = makeList<Player>();
 
-    Player* alice = new Player(1, "Alice");
-    Player* bob = new Player(2, "Bob");
-    Player* carlos = new Player(3, "Carlos");
+    Player* carl = new Player(1, "Carl");
+    Player* fiona = new Player(2, "Fiona");
+    Player* liam = new Player(3, "Liam");
 
     // Deal starting cards.
-    alice->drawCard(new Card("Red", "5"));
-    alice->drawCard(new Card("Blue", "Skip"));
+    carl->drawCard(new Card("Red", "5"));
+    carl->drawCard(new Card("Blue", "Skip"));
 
-    bob->drawCard(new Card("Green", "7"));
-    bob->drawCard(new Card("Yellow", "2"));
+    fiona->drawCard(new Card("Green", "7"));
+    fiona->drawCard(new Card("Yellow", "2"));
 
-    carlos->drawCard(new Card("Blue", "9"));
-    carlos->drawCard(new Card("Red", "Reverse"));
+    liam->drawCard(new Card("Blue", "9"));
+    liam->drawCard(new Card("Red", "Reverse"));
 
     std::cout << "Table one forms:" << std::endl;
 
-    tableOne->addFront(carlos);
-    tableOne->addFront(bob);
-    tableOne->addFront(alice);
+    tableOne->addFront(liam);
+    tableOne->addFront(fiona);
+    tableOne->addFront(carl);
     tableOne->print();
 
-    // Show Alice's hand.
-    std::cout << "Alice's starting hand:" << std::endl;
-    alice->printHand();
+    // Show Carl's cards.
+    std::cout << "Carl's starting hand:" << std::endl;
+    carl->printHand();
 
-    // Alice plays the card on top of her stack.
-    Card* playedCard = alice->playCard();
+    // Carl plays the card on top of his stack.
+    Card* playedCard = carl->playCard();
 
     if (playedCard != nullptr) {
-        std::cout << "Alice plays: " << *playedCard << std::endl;
+        std::cout << "Carl plays: " << *playedCard << std::endl;
         delete playedCard;
     }
 
-    Player* daisy = new Player(4, "Daisy");
+    Player* lip = new Player(4, "Lip");
 
-    daisy->drawCard(new Card("Yellow", "8"));
-    daisy->drawCard(new Card("Green", "Draw Two"));
+    lip->drawCard(new Card("Yellow", "8"));
+    lip->drawCard(new Card("Green", "Draw Two"));
 
-    std::cout << "Daisy joins in the middle:" << std::endl;
-    tableOne->addAnywhere(1, daisy);
+    std::cout << "Lip joins in the middle:" << std::endl;
+    tableOne->addAnywhere(1, lip);
     tableOne->print();
 
     std::cout << "Turn order before Reverse:" << std::endl;
@@ -89,24 +89,24 @@ int main() {
     tableOne->reverse();
     tableOne->print();
 
-    std::cout << "Bob runs out of cards and leaves:" << std::endl;
+    std::cout << "Fiona runs out of cards and leaves:" << std::endl;
     tableOne->deleteAnywhere(1);
     tableOne->print();
 
     // Create the second table.
     std::unique_ptr<List<Player>> tableTwo = makeList<Player>();
 
-    Player* eve = new Player(5, "Eve");
-    Player* frank = new Player(6, "Frank");
+    Player* monica = new Player(5, "Monica");
+    Player* debbie = new Player(6, "Debbie");
 
-    eve->drawCard(new Card("Red", "3"));
-    eve->drawCard(new Card("Blue", "Draw Two"));
+    monica->drawCard(new Card("Red", "3"));
+    monica->drawCard(new Card("Blue", "Draw Two"));
 
-    frank->drawCard(new Card("Green", "6"));
-    frank->drawCard(new Card("Yellow", "Skip"));
+    debbie->drawCard(new Card("Green", "6"));
+    debbie->drawCard(new Card("Yellow", "Skip"));
 
-    tableTwo->addFront(frank);
-    tableTwo->addFront(eve);
+    tableTwo->addFront(debbie);
+    tableTwo->addFront(monica);
 
     std::cout << "Table one before merging:" << std::endl;
     tableOne->print();
